@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import "./Statistics.css";
 import getRandomColor from "../../helper/getRandomColor";
 
@@ -24,7 +25,18 @@ const Statistics = ({ title, stats }) => {
 };
 
 Statistics.defaultProps = {
-  title: null,
+  title: "Upload",
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    }),
+  ).isRequired,
 };
 
 export default Statistics;
